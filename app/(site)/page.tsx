@@ -33,6 +33,7 @@ export default async function Home() {
       <ProjectGallery
         projects={homePageData?.featuredProjects ?? []}
         showFilters={false}
+        animateOnVisibility={true}
       />
       <Link href="/portfolio" className="flex justify-center">
         <button className="border-primary rounded-sm border py-2 px-4 hover:bg-primary hover:text-white transition-colors">

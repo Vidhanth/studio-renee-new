@@ -1,22 +1,58 @@
 "use client";
 
+import { FadeInLeft } from "@/transitions/FadeInLeft";
 import { FadeInLeftWhenVisible } from "@/transitions/FadeInLeftWhenVisible";
+import { FadeInUp } from "@/transitions/FadeInUp";
 import { FadeInUpWhenVisible } from "@/transitions/FadeInUpWhenVisible";
 import { Project } from "@/types/Project";
 import { toTitleCase } from "@/utils/string";
 import Link from "next/link";
-import { useState } from "react";
+import { ReactNode, useState } from "react";
+import useWindowSize from "@rooks/use-window-size";
 
 type ProjectGalleryProps = {
   projects: Project[];
+  animateOnVisibility?: boolean;
   showFilters?: boolean;
 };
 
+type FadeAnimationProps = {
+  animateOnVisibility: boolean;
+  isSmallScreen: boolean;
+  children: ReactNode;
+  delay: number;
+};
+
+function FadeAnimation({
+  isSmallScreen,
+  animateOnVisibility,
+  children,
+  delay,
+}: FadeAnimationProps) {
+  if (animateOnVisibility) {
+    if (isSmallScreen) {
+      return (
+        <FadeInUpWhenVisible delay={delay}>{children}</FadeInUpWhenVisible>
+      );
+    }
+    return (
+      <FadeInLeftWhenVisible delay={delay}>{children}</FadeInLeftWhenVisible>
+    );
+  }
+  if (isSmallScreen) {
+    return <FadeInUp delay={delay}>{children}</FadeInUp>;
+  }
+  return <FadeInLeft delay={delay}>{children}</FadeInLeft>;
+}
+
 export default function ProjectGallery({
   projects,
+  animateOnVisibility = false,
   showFilters = true,
 }: ProjectGalleryProps) {
   const [activeCategory, setActiveCategory] = useState("All");
+
+  const { innerWidth } = useWindowSize();
 
   const projectCategories = new Set(projects.map((project) => project.type));
   const categories = Array.from(projectCategories);
@@ -55,7 +91,9 @@ export default function ProjectGallery({
       )}
       <div className="gap-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
         {...filteredProjects.map((project, index) => (
-          <FadeInLeftWhenVisible
+          <FadeAnimation
+            isSmallScreen={(innerWidth || 0) < 768}
+            animateOnVisibility={animateOnVisibility}
             delay={(index + 1) * 0.2}
             key={`${project._id}-${index}`}
           >
@@ -72,7 +110,7 @@ export default function ProjectGallery({
                 </div>
               </div>
             </Link>
-          </FadeInLeftWhenVisible>
+          </FadeAnimation>
         ))}
       </div>
     </div>

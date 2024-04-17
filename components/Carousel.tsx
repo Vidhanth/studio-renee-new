@@ -66,7 +66,7 @@ export const ProjectCarousel = ({
                 <img
                   src={image.url}
                   alt={image.alt}
-                  className="h-[314px] sm:h-[408px] md:h-[408px] cursor-zoom-in"
+                  className="h-[314px] sm:h-[408px] md:h-[408px] max-w-[85vw] object-cover cursor-zoom-in"
                   onClick={() => {
                     setImageToShow(image);
                     setIsShowingOverlay(true);
