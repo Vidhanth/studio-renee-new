@@ -14,6 +14,12 @@ const teamMember = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: "order",
+      title: "Display Order",
+      type: "number",
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: "jobTitle",
       title: "Job Title",
       type: "string",

@@ -110,7 +110,7 @@ export async function fetchProject(slug: string): Promise<Project | null> {
 }
 
 export const fetchTeamMembers = async (): Promise<TeamMember[]> => {
-  const query = `*[_type == "teamMember"]{
+  const query = `*[_type == "teamMember"] | order(order asc){
       _id,
       name,
       jobTitle,
