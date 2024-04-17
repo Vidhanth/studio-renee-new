@@ -44,7 +44,7 @@ export async function fetchHomeData(): Promise<HomeData | null> {
 }
 
 export async function fetchProjects(): Promise<Project[]> {
-  const query = groq`*[_type == "project"]{
+  const query = groq`*[_type == "project"] | order(order asc){
     _id,
     name,
     type,
