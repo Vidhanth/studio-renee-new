@@ -1,5 +1,5 @@
+import ContactForm from "@/components/contact/Form";
 import Divider from "@/components/Divider";
-import { Field, Input, Textarea } from "@/components/Form";
 import Header from "@/components/Header";
 import { defaultMetadata } from "@/constants";
 import { FadeIn } from "@/transitions";
@@ -14,7 +14,6 @@ export const metadata = {
   ...defaultMetadata,
   title: `Contact Us - ${defaultMetadata.title}`,
 };
-
 
 export default function ContactPage() {
   return (
@@ -74,58 +73,8 @@ export default function ContactPage() {
 
       <Divider />
 
-      <div className="mx-auto max-w-4xl px-6">
-        <form
-          className="mt-10"
-          name="contact-form"
-          method="POST"
-          data-netlify="true"
-          data-netlify-honeypot="bot-field"
-        >
-          <input type="hidden" name="form-name" value="contact-form" />
-
-          <div className="grid grid-cols-12 gap-y-8">
-            {/* Honeypot field to prevent spam. */}
-            <p className="hidden">
-              <label>
-                Don’t fill this out if you’re human: <input name="bot-field" />
-              </label>
-            </p>
-
-            <Field label="Name" className="col-span-12">
-              <Input required type="text" name="first_name" id="first_name" />
-            </Field>
-
-            <Field
-              label="Phone Number"
-              className="col-span-12 md:mr-3 sm:col-span-6"
-            >
-              <Input
-                required
-                type="text"
-                name="phone_number"
-                id="phone_number"
-              />
-            </Field>
-
-            <Field label="Email" className="col-span-12 md:ml-3 sm:col-span-6">
-              <Input required type="email" name="email" id="email" />
-            </Field>
-
-            <Field label="Message" className="col-span-12">
-              <Textarea required name="message" id="message" />
-            </Field>
-          </div>
-
-          <div className="my-10 flex justify-center">
-            <button
-              type="submit"
-              className="bg-primary text-white py-2 px-4 rounded-sm"
-            >
-              Submit
-            </button>
-          </div>
-        </form>
+      <div className="mx-auto max-w-4xl px-6 pt-10">
+        <ContactForm />
       </div>
     </div>
   );
