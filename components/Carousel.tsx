@@ -33,12 +33,6 @@ export const ProjectCarousel = ({
   const [isShowingOverlay, setIsShowingOverlay] = useState(false);
   const [imageToShow, setImageToShow] = useState<Image>(images[0]);
 
-  // for all available options: https://www.embla-carousel.com/api/options/
-  const options = {
-    loop: true,
-    align: "start",
-  };
-
   useEffect(() => {
     if (!api) {
       return;
@@ -61,7 +55,7 @@ export const ProjectCarousel = ({
           <p>{description}</p>
         </FadeInLeftWhenVisible>
       </div>
-      <Carousel setApi={setApi} opts={options}>
+      <Carousel setApi={setApi} opts={{ loop: true, align: "start" }}>
         <CarouselContent>
           {images.map((image, index) => (
             <CarouselItem
@@ -72,7 +66,7 @@ export const ProjectCarousel = ({
                 <img
                   src={image.url}
                   alt={image.alt}
-                  className="h-[314px] sm:h-[408px] md:h-[408px]"
+                  className="h-[314px] sm:h-[408px] md:h-[408px] cursor-zoom-in"
                   onClick={() => {
                     setImageToShow(image);
                     setIsShowingOverlay(true);
