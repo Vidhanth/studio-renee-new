@@ -1,19 +1,23 @@
-interface Section {
+import { Project } from "./Project";
+
+export interface Section {
   title: string;
   description: string;
-  image: string; // Image URL as a string
-  showOnLeft: boolean;
+  image: string;
+  showOnLeft?: boolean;
 }
 
-interface FAQ {
+export interface FAQ {
   question: string;
   answer: string;
 }
 
 export interface HomeData {
   _id: string;
-  featuredProjects: { _id: string; name: string }[]; // Assuming simplified structure
-  carouselImages: string[]; // Image URLs as strings
+  header: string;
+  subheader: string;
+  featuredProjects: Project[];
+  carouselImages: string[];
   sections: Section[];
   faq: FAQ[];
 }

@@ -20,6 +20,12 @@ const project = defineType({
       validation: (Rule) => Rule.max(200).required(),
     }),
     defineField({
+      name: "type",
+      title: "Project Type",
+      type: "string",
+      validation: (Rule) => Rule.max(50).required(),
+    }),
+    defineField({
       name: "tags",
       title: "Tags",
       type: "array",
@@ -64,16 +70,16 @@ const project = defineType({
       options: { hotspot: true },
       fields: [
         defineField({
-          name: "caption",
-          type: "string",
-          title: "Caption",
-        }),
-        defineField({
           name: "alt",
           title: "Alt Text",
           type: "string",
         }),
       ],
+    }),
+    defineField({
+      name: "descriptionTitle",
+      title: "Description Image Title",
+      type: "string",
     }),
     defineField({
       name: "images",

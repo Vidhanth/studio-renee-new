@@ -3,11 +3,5 @@ export interface TeamMember {
   name: string;
   jobTitle: string;
   about: string;
-  picture: {
-    _type: "image";
-    asset: {
-      _ref: string;
-      _type: "reference";
-    };
-  };
+  picture: string;
 }

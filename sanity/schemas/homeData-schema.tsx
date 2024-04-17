@@ -14,6 +14,18 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: "header",
+      title: "Header",
+      type: "string",
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: "subheader",
+      title: "Subheader",
+      type: "string",
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: "featuredProjects",
       title: "Featured Projects",
       type: "array",

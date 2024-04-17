@@ -7,6 +7,8 @@ import { HomeData } from "@/types/HomeData";
 export async function fetchHomeData(): Promise<HomeData | null> {
   const query = `*[_type == "homeScreenData"][0]{
         _id,
+        header,
+        subheader,
         featuredProjects[]->{
           _id,
           name,
@@ -45,12 +47,18 @@ export async function fetchProjects(): Promise<Project[]> {
   const query = groq`*[_type == "project"]{
     _id,
     name,
+    type,
     shortDescription,
     tags,
     "coverImage": {
       "url": coverImage.asset->url,
       "alt": coverImage.alt,
       "caption": coverImage.caption
+    },
+    "images": images[].asset->{
+      "url": url,
+      "alt": alt,
+      "caption": caption
     },
     "slug": slug.current
   }`;
@@ -70,6 +78,7 @@ export async function fetchProject(slug: string): Promise<Project | null> {
     _id,
     name,
     shortDescription,
+    descriptionTitle,
     tags,
     subtitle,
     longDescription,

@@ -1,22 +1,45 @@
-import { fetchProjects } from "@/sanity/sanity-utils";
-import Image from "next/image";
+import Divider from "@/components/Divider";
+import Header from "@/components/Header";
+import FAQSection from "@/components/home/FAQSection";
+import HeroSection from "@/components/home/HeroSection";
+import ProjectGallery from "@/components/projects/ProjectGallery";
+import { SectionComponent } from "@/components/Section";
+import { fetchHomeData } from "@/sanity/sanity-utils";
+import Link from "next/link";
 
 export default async function Home() {
-  const projects = await fetchProjects();
+  const homePageData = await fetchHomeData();
 
   return (
-    <div>
-      {projects.map((project) => (
-        <div key={project._id}>
-          {project.name}
-          <Image
-            src={project.coverImage.url}
-            alt={project.coverImage.alt || ""}
-            width={350}
-            height={350}
-          />
+    <div className="overflow-hidden">
+      <HeroSection
+        images={homePageData?.carouselImages!}
+        title={homePageData?.header!}
+        subtitle={homePageData?.subheader!}
+      />
+      <Divider />
+      {homePageData?.sections.map((section) => (
+        <div key={section.title}>
+          <SectionComponent section={section} />
+          <Divider />
         </div>
       ))}
+      <FAQSection faqItems={homePageData?.faq!} />
+      <Divider />
+      <Header
+        title="Discover Our Work"
+        subtitle={"Happy clients means happy places."}
+      />
+      <ProjectGallery
+        projects={homePageData?.featuredProjects ?? []}
+        showFilters={false}
+      />
+      <Link href="/portfolio" className="flex justify-center">
+        <button className="border-primary rounded-sm border py-2 px-4 hover:bg-primary hover:text-white transition-colors">
+          View All
+        </button>
+      </Link>
+      <Divider visible={false} />
     </div>
   );
 }
