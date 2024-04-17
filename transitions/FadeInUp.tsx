@@ -29,9 +29,9 @@ export const FadeInUp = ({
       animate="enter"
       exit="exit"
       variants={{
-        hidden: { opacity: 0, translateY: -distance },
+        hidden: { opacity: 0, translateY: distance },
         enter: { opacity: 1, translateY: 0 },
-        exit: { opacity: 0, translateY: -distance },
+        exit: { opacity: 0, translateY: distance },
       }}
       transition={{ type: "linear", duration, delay }}
       className={className}
