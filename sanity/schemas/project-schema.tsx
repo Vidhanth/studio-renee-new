@@ -9,19 +9,13 @@ const project = defineType({
   fields: [
     defineField({
       name: "name",
-      title: "Name",
+      title: "Name (Project Title)",
       type: "string",
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: "order",
-      title: "Display Order",
-      type: "number",
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
       name: "shortDescription",
-      title: "Short Description",
+      title: "Short Description (Shown on Home Screen)",
       type: "text",
       validation: (Rule) => Rule.max(200).required(),
     }),
@@ -42,14 +36,8 @@ const project = defineType({
     }),
     defineField({
       name: "subtitle",
-      title: "Subtitle",
+      title: "Subtitle (Shown under title in Project details page)",
       type: "string",
-    }),
-    defineField({
-      name: "longDescription",
-      title: "Long Description",
-      type: "text",
-      validation: (Rule) => Rule.max(600).required(),
     }),
     defineField({
       name: "coverImage",
@@ -58,16 +46,17 @@ const project = defineType({
       options: { hotspot: true },
       fields: [
         defineField({
-          name: "caption",
-          type: "string",
-          title: "Caption",
-        }),
-        defineField({
           name: "alt",
           title: "Alt Text",
           type: "string",
         }),
       ],
+    }),
+    defineField({
+      name: "images",
+      title: "Images",
+      type: "array",
+      of: [{ type: "image" }],
     }),
     defineField({
       name: "descriptionImage",
@@ -88,14 +77,26 @@ const project = defineType({
       type: "string",
     }),
     defineField({
-      name: "images",
-      title: "Images",
-      type: "array",
-      of: [{ type: "image" }],
+      name: "longDescription",
+      title: "Long Description",
+      type: "text",
+      validation: (Rule) => Rule.max(600).required(),
+    }),
+    defineField({
+      name: "testimonial",
+      title: "Corresponding Testimonial",
+      type: "reference",
+      to: [{ type: "testimonials" }],
+    }),
+    defineField({
+      name: "order",
+      title: "Display Order",
+      type: "number",
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "slug",
-      title: "Slug",
+      title: "Slug (will be shown in URL, just click generate)",
       type: "slug",
       options: { source: "name" },
     }),

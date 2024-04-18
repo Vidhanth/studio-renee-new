@@ -1,3 +1,5 @@
+import { Testimonial } from "./Testimonial";
+
 export interface Image {
   url: string;
   alt?: string;
@@ -17,5 +19,6 @@ export interface Project {
   descriptionImage: Image;
   descriptionTitle: string;
   images: Image[];
+  testimonial: Testimonial;
   slug: string;
 }

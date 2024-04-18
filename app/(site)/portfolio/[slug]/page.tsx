@@ -1,6 +1,7 @@
 import { ProjectCarousel } from "@/components/Carousel";
 import Divider from "@/components/Divider";
 import Header from "@/components/Header";
+import { TestimonialItem } from "@/components/home/TestimonialSection";
 import { SectionComponent } from "@/components/Section";
 import { defaultMetadata } from "@/constants";
 import { fetchProject } from "@/sanity/sanity-utils";
@@ -56,6 +57,19 @@ export default async function ProjectPage({ params }: Props) {
         heading={"Image Gallery"}
         description={"Check out other images from this project."}
       />
+      {project?.testimonial && (
+        <>
+          <Divider />
+          <Header
+            title={"Client's Review"}
+            subtitle="We value feedback from our clients"
+          />
+          <div className="grid mt-8 mx-auto place-items-center max-w-lg px-6">
+            <TestimonialItem testimonial={project.testimonial} />
+          </div>
+          <Divider visible={false} />
+        </>
+      )}
     </div>
   );
 }

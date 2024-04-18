@@ -38,6 +38,18 @@ export default defineType({
       validation: (Rule) => Rule.unique(),
     }),
     defineField({
+      name: "featuredTestimonials",
+      title: "Featured Testimonials",
+      type: "array",
+      of: [
+        {
+          type: "reference",
+          to: [{ type: "testimonials" }],
+        },
+      ],
+      validation: (Rule) => Rule.unique().max(3),
+    }),
+    defineField({
       name: "carouselImages",
       title: "Carousel Images",
       type: "array",

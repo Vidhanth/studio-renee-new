@@ -21,6 +21,12 @@ export async function fetchHomeData(): Promise<HomeData | null> {
           },
           "slug": slug.current
         },
+        featuredTestimonials[]->{
+          _id,
+          name,
+          testimonial,
+          stars,
+        },
         "carouselImages": carouselImages[].asset->url,
         sections[]{
           title,
@@ -73,7 +79,6 @@ export async function fetchProjects(): Promise<Project[]> {
 }
 
 export async function fetchProject(slug: string): Promise<Project | null> {
-  console.log(slug);
   const query = groq`*[_type == "project" && slug.current == $slug][0]{
     _id,
     name,
@@ -91,6 +96,12 @@ export async function fetchProject(slug: string): Promise<Project | null> {
       "url": descriptionImage.asset->url,
       "alt": descriptionImage.alt,
       "caption": descriptionImage.caption
+    },
+    testimonial->{
+      _id,
+      name,
+      testimonial,
+      stars,
     },
     "images": images[].asset->{
       "url": url,

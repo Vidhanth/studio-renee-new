@@ -2,6 +2,7 @@ import Divider from "@/components/Divider";
 import Header from "@/components/Header";
 import FAQSection from "@/components/home/FAQSection";
 import HeroSection from "@/components/home/HeroSection";
+import { TestimonialSection } from "@/components/home/TestimonialSection";
 import ProjectGallery from "@/components/projects/ProjectGallery";
 import { SectionComponent } from "@/components/Section";
 import { fetchHomeData } from "@/sanity/sanity-utils";
@@ -40,6 +41,12 @@ export default async function Home() {
           View All
         </button>
       </Link>
+      <Divider />
+      <TestimonialSection
+        heading="Customer Testimonials"
+        description="Hear what our happy customers have to say!"
+        testimonials={homePageData?.featuredTestimonials ?? []}
+      />
       <Divider visible={false} />
     </div>
   );

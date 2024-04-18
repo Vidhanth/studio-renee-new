@@ -1,4 +1,5 @@
 import { Project } from "./Project";
+import { Testimonial } from "./Testimonial";
 
 export interface Section {
   title: string;
@@ -17,6 +18,7 @@ export interface HomeData {
   header: string;
   subheader: string;
   featuredProjects: Project[];
+  featuredTestimonials: Testimonial[];
   carouselImages: string[];
   sections: Section[];
   faq: FAQ[];
