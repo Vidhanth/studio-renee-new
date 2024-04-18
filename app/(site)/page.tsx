@@ -43,7 +43,7 @@ export default async function Home() {
       </Link>
       <Divider />
       <TestimonialSection
-        heading="Customer Testimonials"
+        heading="Client Testimonials"
         description="Hear what our happy customers have to say!"
         testimonials={homePageData?.featuredTestimonials ?? []}
       />

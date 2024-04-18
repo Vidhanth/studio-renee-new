@@ -85,7 +85,9 @@ export async function fetchProject(slug: string): Promise<Project | null> {
     shortDescription,
     descriptionTitle,
     tags,
-    subtitle,
+    what,
+    location,
+    year,
     longDescription,
     "coverImage": {
       "url": coverImage.asset->url,

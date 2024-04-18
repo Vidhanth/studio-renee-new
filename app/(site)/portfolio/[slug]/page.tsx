@@ -1,13 +1,12 @@
 import { ProjectCarousel } from "@/components/Carousel";
 import Divider from "@/components/Divider";
+import FadeAnimation from "@/components/FadeAnimation";
 import Header from "@/components/Header";
 import { TestimonialItem } from "@/components/home/TestimonialSection";
 import { SectionComponent } from "@/components/Section";
 import { defaultMetadata } from "@/constants";
 import { fetchProject } from "@/sanity/sanity-utils";
 import { FadeIn } from "@/transitions";
-import { FadeInLeft } from "@/transitions/FadeInLeft";
-import { toTitleCase } from "@/utils/string";
 
 type Props = {
   params: {
@@ -24,23 +23,28 @@ export default async function ProjectPage({ params }: Props) {
   const project = await fetchProject(params.slug);
   return (
     <div className="mt-10">
-      <Header title={project!.name} subtitle={project!.subtitle} />
-      <div className="flex justify-center space-x-4 mb-10 mt-5">
-        {project?.tags.map((tag, index) => (
-          <FadeInLeft delay={index * 0.2 + 0.2} key={tag}>
-            <div
-              className={`rounded min-w-24 py-1 text-sm text-center font-medium text-black bg-tertiary `}
-            >
-              {toTitleCase(tag)}
-            </div>
-          </FadeInLeft>
-        ))}
-      </div>
+      <Header title={project!.name} />
+
+      <FadeAnimation
+        animateOnVisibility
+        overrideDirection="up"
+        delay={0.6}
+        className="max-w-6xl mx-auto py-5 text-center"
+      >
+        What: {project?.what} | Where: {project?.location} | When:{" "}
+        {project?.year}
+      </FadeAnimation>
+
+      {project?.tags.map((tag, index) => (
+        <div key={index} className={`invisible text-sm size-1`}>
+          {tag}
+        </div>
+      ))}
       <FadeIn delay={0.8}>
         <img
           className="max-w-6xl mx-auto max-h-svh w-full px-6 object-contain"
-          src={project?.coverImage.url}
-          alt={project?.coverImage.alt}
+          src={project?.descriptionImage.url}
+          alt={project?.descriptionImage.alt}
         />
       </FadeIn>
       <Divider />
@@ -48,7 +52,7 @@ export default async function ProjectPage({ params }: Props) {
         section={{
           title: project!.descriptionTitle,
           description: project!.longDescription,
-          image: project!.descriptionImage.url,
+          image: project!.coverImage.url,
         }}
       />
       <Divider />

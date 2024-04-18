@@ -14,6 +14,24 @@ const project = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: "what",
+      title: "What (Project Type)",
+      type: "string",
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: "location",
+      title: "Where (Project Location)",
+      type: "string",
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: "year",
+      title: "When (Project Date/Year)",
+      type: "string",
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: "shortDescription",
       title: "Short Description (Shown on Home Screen)",
       type: "text",
@@ -33,11 +51,6 @@ const project = defineType({
       options: {
         layout: "tags",
       },
-    }),
-    defineField({
-      name: "subtitle",
-      title: "Subtitle (Shown under title in Project details page)",
-      type: "string",
     }),
     defineField({
       name: "coverImage",

@@ -11,9 +11,11 @@ export interface Project {
   _type: "project";
   name: string;
   type: string;
+  what: string;
+  location: string;
+  year: string;
   shortDescription: string;
   tags: string[];
-  subtitle: string;
   longDescription: string;
   coverImage: Image;
   descriptionImage: Image;
