@@ -14,7 +14,7 @@ export default function PreFooterSection() {
   return (
     <div className="text-white bg-pre-footer bg-cover">
       <div className="py-20 bg-black bg-opacity-50">
-        <div className="max-w-6xl mx-auto p-8 flex flex-col text-center md:text-start items-center md:items-start gap-y-3">
+        <div className="max-w-6xl mx-auto px-6 flex flex-col text-center md:text-start items-center md:items-start gap-y-3">
           <FadeAnimation animateOnVisibility={true}>
             <h1 className={`${archivo.className} text-5xl font-bold`}>
               Transform your space with us
