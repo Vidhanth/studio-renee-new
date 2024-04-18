@@ -2,6 +2,7 @@ import { archivo } from "@/fonts";
 import { FadeInWhenVisible } from "@/transitions";
 import { FadeInLeftWhenVisible } from "@/transitions/FadeInLeftWhenVisible";
 import { Section } from "@/types/HomeData";
+import FadeAnimation from "./FadeAnimation";
 
 interface SectionProps {
   section: Section;
@@ -26,16 +27,16 @@ export function SectionComponent({ section }: SectionProps) {
 
   const textSection = (
     <div className="w-full md:w-1/2 pt-4">
-      <FadeInLeftWhenVisible delay={0.6}>
+      <FadeAnimation animateOnVisibility={true} delay={0.6}>
         <h2
           className={`${archivo.className} text-3xl font-bold text-black mb-4`}
         >
           {section.title}
         </h2>
-      </FadeInLeftWhenVisible>
-      <FadeInLeftWhenVisible delay={0.8}>
+      </FadeAnimation>
+      <FadeAnimation animateOnVisibility={true} delay={0.8}>
         <p className="text-gray-700">{section.description}</p>
-      </FadeInLeftWhenVisible>
+      </FadeAnimation>
     </div>
   );
 
