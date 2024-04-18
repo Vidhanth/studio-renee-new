@@ -73,7 +73,7 @@ export const TestimonialItem = ({ testimonial }: TestimonialItemProps) => {
       </div>
       <FadeAnimation overrideDirection="up" delay={0.2} animateOnVisibility>
         <blockquote
-          className={`my-6 text-md font-bold leading-[1.4] before:content-['"'] after:content-['"'] md:my-8 md:text-xl`}
+          className={`my-6 text-md leading-[1.4] before:content-['"'] after:content-['"'] md:my-8 md:text-lg`}
         >
           {testimonial.testimonial}
         </blockquote>
