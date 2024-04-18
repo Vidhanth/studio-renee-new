@@ -31,7 +31,7 @@ export const ProjectCarousel = ({
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const [isShowingOverlay, setIsShowingOverlay] = useState(false);
-  const [imageToShow, setImageToShow] = useState<Image>(images[0]);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
     if (!api) {
@@ -68,7 +68,7 @@ export const ProjectCarousel = ({
                   alt={image.alt}
                   className="h-[314px] sm:h-[408px] md:h-[408px] max-w-[85vw] object-cover cursor-zoom-in"
                   onClick={() => {
-                    setImageToShow(image);
+                    setCurrentImageIndex(index);
                     setIsShowingOverlay(true);
                   }}
                 />
@@ -96,7 +96,8 @@ export const ProjectCarousel = ({
         </div>
       </Carousel>
       <OverlayDialog
-        image={imageToShow}
+        images={images}
+        startIndex={currentImageIndex}
         isOpen={isShowingOverlay}
         onClose={() => {
           setIsShowingOverlay(false);
