@@ -5,8 +5,9 @@ import { FadeInUpWhenVisible } from "@/transitions/FadeInUpWhenVisible";
 type HeaderProps = {
   preheader?: string;
   title: string;
-  subtitle: string;
+  subtitle?: string;
   bgTexture?: string;
+  className?: string;
 };
 
 export default function Header({
@@ -14,10 +15,11 @@ export default function Header({
   title,
   subtitle,
   bgTexture,
+  className,
 }: HeaderProps) {
   return (
     <FadeIn>
-      <div className={`bg-${bgTexture}`}>
+      <div className={`bg-${bgTexture} ${className}`}>
         <div
           className={`${
             bgTexture?.length || 0 > 0
@@ -36,9 +38,11 @@ export default function Header({
                 {title}
               </h1>
             </FadeInUpWhenVisible>
-            <FadeInUpWhenVisible delay={0.5}>
-              <p>{subtitle}</p>
-            </FadeInUpWhenVisible>
+            {subtitle && (
+              <FadeInUpWhenVisible delay={0.5}>
+                <p>{subtitle}</p>
+              </FadeInUpWhenVisible>
+            )}
           </div>
         </div>
       </div>
