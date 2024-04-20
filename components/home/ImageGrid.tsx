@@ -1,15 +1,32 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
 type ImageGridProps = {
   images: string[];
 };
 
 export default function ImageGrid({ images }: ImageGridProps) {
-  // Quadruple the images to ensure full coverage
   const quadImages = [...images, ...images, ...images, ...images];
+
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setIsAnimating(true);
+    }, 500);
+
+    return () => clearTimeout(timeoutId);
+  }, []);
 
   return (
     <div className="flex h-full overflow-hidden gap-x-2">
       <div className="w-1/2">
-        <div className=" flex flex-col items-center space-y-2 scroll-up">
+        <div
+          className={`flex flex-col items-center space-y-2 ${
+            isAnimating ? "scroll-up" : ""
+          }`}
+        >
           {quadImages
             .filter((_, index) => index % 2 === 0)
             .map((url, index) => (
@@ -23,7 +40,11 @@ export default function ImageGrid({ images }: ImageGridProps) {
         </div>
       </div>
       <div className="w-1/2">
-        <div className=" flex flex-col items-center space-y-2 scroll-down">
+        <div
+          className={`flex flex-col items-center space-y-2 ${
+            isAnimating ? "scroll-down" : ""
+          }`}
+        >
           {quadImages
             .filter((_, index) => index % 2 !== 0)
             .map((url, index) => (
