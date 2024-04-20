@@ -93,7 +93,7 @@ const project = defineType({
       name: "longDescription",
       title: "Long Description",
       type: "text",
-      validation: (Rule) => Rule.max(600).required(),
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "testimonial",

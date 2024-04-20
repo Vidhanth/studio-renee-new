@@ -29,7 +29,7 @@ const teamMember = defineType({
       name: "about",
       title: "About",
       type: "text",
-      validation: (Rule) => Rule.max(200),
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "picture",
