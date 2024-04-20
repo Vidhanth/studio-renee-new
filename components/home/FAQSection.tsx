@@ -14,14 +14,11 @@ export default function FAQSection({ faqItems }: FAQProps) {
       <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row gap-5">
         <div className="w-full text-center md:text-start">
           <FadeAnimation animateOnVisibility={true}>
-            <h2 className={`${archivo.className} text-3xl font-bold my-4`}>
+            <h2 className={`${archivo.className} text-3xl font-bold mb-4 md:mt-4`}>
               Frequently Asked Questions
             </h2>
           </FadeAnimation>
-          <FadeAnimation
-            delay={0.2}
-            animateOnVisibility={true}
-          >
+          <FadeAnimation delay={0.2} animateOnVisibility={true}>
             <div className="text-gray-700">
               Find answers to commonly asked questions about our interior design
               and architecture services.
@@ -36,7 +33,10 @@ export default function FAQSection({ faqItems }: FAQProps) {
               overrideDirection="left"
               animateOnVisibility={true}
             >
-              <FAQItem question={faq.question} answer={faq.answer} />
+              <FAQItem
+                faq={faq}
+                showBottomBorder={index !== faqItems.length - 1}
+              />
             </FadeAnimation>
           ))}
         </div>
@@ -45,11 +45,20 @@ export default function FAQSection({ faqItems }: FAQProps) {
   );
 }
 
-function FAQItem({ question, answer }: FAQ) {
+type FAQItemProps = {
+  faq: FAQ;
+  showBottomBorder: boolean;
+};
+
+function FAQItem({ faq, showBottomBorder }: FAQItemProps) {
   return (
-    <div className="border-b border-tertiary py-4">
-      <div className=" font-bold">{question}</div>
-      <p className="text-base text-gray-700">{answer}</p>
+    <div
+      className={`border-b pt-4 ${
+        showBottomBorder ? "border-tertiary pb-3" : "border-transparent"
+      }`}
+    >
+      <div className=" font-bold">{faq.question}</div>
+      <p className="text-base text-gray-700">{faq.answer}</p>
     </div>
   );
 }
