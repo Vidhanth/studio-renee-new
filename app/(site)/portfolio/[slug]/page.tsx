@@ -29,10 +29,13 @@ export default async function ProjectPage({ params }: Props) {
         animateOnVisibility
         overrideDirection="up"
         delay={0.6}
-        className="max-w-6xl mx-auto py-5 text-center"
+        className="max-w-6xl px-6 mx-auto py-5 text-center flex flex-col md:flex-row justify-center gap-y-1"
       >
-        What: {project?.what} | Where: {project?.location} | When:{" "}
-        {project?.year}
+        <div>
+          What: {project?.what} | Where: {project?.location}
+        </div>
+        <div className="hidden md:block">&nbsp;|&nbsp;</div>
+        <div>When: {project?.year}</div>
       </FadeAnimation>
 
       {project?.tags.map((tag, index) => (
