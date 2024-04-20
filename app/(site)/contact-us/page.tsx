@@ -49,7 +49,7 @@ export default function ContactPage() {
               <MdOutlineLocationOn className="text-3xl text-secondary" />
               <div className="font-bold text-lg pt-2">Office</div>
               <div>
-                Studio Renée <br />
+                Studio Reneé <br />
                 No. 89/2, 2nd floor <br />
                 East Anjaneya Temple Road, Basavanagudi <br />
                 Bengaluru 560004
