@@ -62,7 +62,7 @@ export default function ProjectGallery({
             key={`${project._id}-${index}`}
           >
             <Link href={`/portfolio/${project.slug}`}>
-              <div className="relative group text-white w-full sm:h-[408px] h-full mb-0 overflow-hidden rounded-sm">
+              <div className="relative group text-white w-full h-[408px] mb-0 overflow-hidden rounded-sm">
                 <img
                   src={project.coverImage.url}
                   alt={project.coverImage.alt || project.name}
