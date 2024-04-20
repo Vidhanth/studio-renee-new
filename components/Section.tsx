@@ -1,6 +1,5 @@
 import { archivo } from "@/fonts";
 import { FadeInWhenVisible } from "@/transitions";
-import { FadeInLeftWhenVisible } from "@/transitions/FadeInLeftWhenVisible";
 import { Section } from "@/types/HomeData";
 import FadeAnimation from "./FadeAnimation";
 
@@ -42,7 +41,7 @@ export function SectionComponent({ section }: SectionProps) {
 
   return (
     <div
-      className={`max-w-6xl mx-auto px-6 flex text-center md:text-start ${
+      className={`max-w-6xl mx-auto px-6 flex gap-y-3 text-center md:text-start ${
         section.showOnLeft
           ? "md:flex-row md:justify-between justify-center"
           : "md:flex-row-reverse md:justify-between justify-center"
