@@ -19,9 +19,13 @@ export default function RootLayout({
         <header>
           <Navbar />
         </header>
-        <FadeIn>{children}</FadeIn>
-        <PreFooterSection />
-        <Footer />
+        <main>
+          <FadeIn>{children}</FadeIn>
+        </main>
+        <footer>
+          <PreFooterSection />
+          <Footer />
+        </footer>
       </body>
     </html>
   );
