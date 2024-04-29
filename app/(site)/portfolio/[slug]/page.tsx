@@ -46,8 +46,8 @@ export default async function ProjectPage({ params }: Props) {
       <FadeIn delay={0.8}>
         <img
           className="max-w-6xl mx-auto max-h-svh w-full px-6 object-contain"
-          src={project?.descriptionImage.url}
-          alt={project?.descriptionImage.alt}
+          src={project?.coverImage.url}
+          alt={project?.coverImage.alt}
         />
       </FadeIn>
       <Divider />
@@ -55,7 +55,7 @@ export default async function ProjectPage({ params }: Props) {
         section={{
           title: project!.descriptionTitle,
           description: project!.longDescription,
-          image: project!.coverImage.url,
+          image: project!.descriptionImage.url,
         }}
       />
       <Divider />
