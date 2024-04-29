@@ -14,6 +14,13 @@ const project = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: "type",
+      title:
+        "Project Type (Shown in filters on project page. Unique value will create a new filter)",
+      type: "string",
+      validation: (Rule) => Rule.max(50).required(),
+    }),
+    defineField({
       name: "what",
       title: "What (Project Type)",
       type: "string",
@@ -35,14 +42,7 @@ const project = defineType({
       name: "shortDescription",
       title: "Short Description (Shown on Home Screen)",
       type: "text",
-      validation: (Rule) => Rule.max(200).required(),
-    }),
-    defineField({
-      name: "type",
-      title:
-        "Project Type (Shown in filters on project page. Unique value will create a new filter)",
-      type: "string",
-      validation: (Rule) => Rule.max(50).required(),
+      validation: (Rule) => Rule.max(200),
     }),
     defineField({
       name: "tags",
