@@ -11,10 +11,12 @@ type FAQProps = {
 export default function FAQSection({ faqItems }: FAQProps) {
   return (
     <section>
-      <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row gap-5">
-        <div className="w-full text-center md:text-start">
+      <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row gap-5 items-center">
+        <div className="w-full text-center md:text-start md:mr-10">
           <FadeAnimation animateOnVisibility={true}>
-            <h2 className={`${archivo.className} text-3xl font-bold mb-4 md:mt-4`}>
+            <h2
+              className={`${archivo.className} text-3xl md:text-5xl font-bold mb-4 md:mt-4`}
+            >
               Frequently Asked Questions
             </h2>
           </FadeAnimation>
