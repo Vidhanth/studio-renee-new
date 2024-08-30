@@ -47,8 +47,8 @@ export default function PrivacyPolicy() {
       <div className="font-bold py-2">Contact Us</div>
       If you have any questions or concerns about this Privacy Policy or our
       data practices, please contact us at{" "}
-      <a href="mailto:studioreneedesigns@gmail.com">
-        studioreneedesigns@gmail.com
+      <a href="mailto:info@studiorenee.co.in">
+        info@studiorenee.co.in
       </a>
       .
     </div>

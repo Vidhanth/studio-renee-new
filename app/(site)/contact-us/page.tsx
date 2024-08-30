@@ -32,8 +32,8 @@ export default function ContactPage() {
             <FadeInLeft delay={0.2}>
               <MdOutlineEmail className="text-3xl text-secondary" />
               <div className="font-bold text-lg pt-2">Email</div>
-              <a href="mailto:studioreneedesigns@gmail.com">
-                studioreneedesigns@gmail.com
+              <a href="mailto:info@studiorenee.co.in">
+                info@studiorenee.co.in
               </a>
             </FadeInLeft>
           </div>

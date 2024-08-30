@@ -13,8 +13,8 @@ export default function Footer() {
           </Link>
           <div className="my-4 flex flex-col gap-y-0">
             <p className="font-bold">Contact:</p>
-            <a href="mailto:studioreneedesigns@gmail.com">
-              studioreneedesigns@gmail.com
+            <a href="mailto:info@studiorenee.co.in">
+              info@studiorenee.co.in
             </a>
             <a href="tel:9901897130"> +91 9901897130</a>
           </div>
