@@ -22,7 +22,7 @@ export default defineType({
     defineField({
       name: "subheader",
       title: "Subheader",
-      type: "string",
+      type: "text",
       validation: (Rule) => Rule.required(),
     }),
     defineField({
