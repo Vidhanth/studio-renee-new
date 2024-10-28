@@ -32,7 +32,11 @@ export default function HeroSection({
         </h2>
       </FadeInLeft>
       <FadeInLeft delay={0.9}>
-        <p className="text-gray-700">{subtitle}</p>
+        {subtitle.split("\n").map((line, index) => (
+          <p key={index} className="text-gray-700">
+            {line}
+          </p>
+        ))}
       </FadeInLeft>
     </div>
   );

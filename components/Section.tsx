@@ -34,7 +34,11 @@ export function SectionComponent({ section }: SectionProps) {
         </h2>
       </FadeAnimation>
       <FadeAnimation animateOnVisibility={true} delay={0.8}>
-        <p className="text-gray-700">{section.description}</p>
+        {section.description.split("\n").map((line, index) => (
+          <p key={index} className="text-gray-700">
+            {line}
+          </p>
+        ))}
       </FadeAnimation>
     </div>
   );

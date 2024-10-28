@@ -59,8 +59,12 @@ function FAQItem({ faq, showBottomBorder }: FAQItemProps) {
         showBottomBorder ? "border-tertiary pb-3" : "border-transparent"
       }`}
     >
-      <div className=" font-bold">{faq.question}</div>
-      <p className="text-base text-gray-700">{faq.answer}</p>
+      <div className="font-bold">{faq.question}</div>
+      {faq.answer.split("\n").map((line, index) => (
+        <p key={index} className="text-base text-gray-700">
+          {line}
+        </p>
+      ))}
     </div>
   );
 }
