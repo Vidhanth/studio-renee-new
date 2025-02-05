@@ -15,7 +15,7 @@ export default function HeroSection({
   subtitle,
 }: HeroSectionProps) {
   const imageSection = (
-    <div className="w-full overflow-hidden h-2/3 md:h-full md:w-1/2 md:p-0">
+    <div className="w-full overflow-hidden h-[50vh] md:h-full md:w-1/2 md:p-0">
       <FadeIn delay={1.1}>
         <ImageGrid images={images}></ImageGrid>
       </FadeIn>
@@ -43,7 +43,7 @@ export default function HeroSection({
 
   return (
     <div
-      className={`h-[calc(100vh-4rem)] flex max-w-6xl mx-auto px-6 md:flex-row flex-col md:justify-between md:items-center gap-x-10`}
+      className={`h-auto md:h-[calc(100vh-4rem)] flex max-w-6xl mx-auto px-6 md:flex-row flex-col md:justify-between md:items-center gap-x-10`}
     >
       {textSection}
       {imageSection}
