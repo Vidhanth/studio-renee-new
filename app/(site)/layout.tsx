@@ -6,6 +6,7 @@ import "../globals.css";
 import { Metadata } from "next";
 import { defaultMetadata } from "@/constants";
 import { FaWhatsapp } from "react-icons/fa6";
+import Script from "next/script";
 
 export const metadata: Metadata = defaultMetadata;
 
@@ -16,6 +17,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <Script src="https://www.googletagmanager.com/gtag/js?id=AW-16880947333" />
+      <Script id="gtag-init" strategy="afterInteractive">
+        {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'AW-16880947333');
+            `}
+      </Script>
       <body>
         <header>
           <Navbar />
