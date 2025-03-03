@@ -37,7 +37,7 @@ export default function Footer() {
               <FaInstagram className="text-xl" />
             </a>
             <a
-              href="//facebook.com/StudioReneee/"
+              href="//facebook.com/studiorenee2022/"
               target="_blank"
               rel="noreferrer"
               className="block"
