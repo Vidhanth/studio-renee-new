@@ -7,6 +7,7 @@ import ProjectGallery from "@/components/projects/ProjectGallery";
 import { SectionComponent } from "@/components/Section";
 import { fetchHomeData } from "@/sanity/sanity-utils";
 import Link from "next/link";
+import BudgetCalculatorWrapper from "@/components/BudgetCalculatorWrapper";
 
 export default async function Home() {
   const homePageData = await fetchHomeData();
@@ -48,6 +49,7 @@ export default async function Home() {
         testimonials={homePageData?.featuredTestimonials ?? []}
       />
       <Divider visible={false} />
+      <BudgetCalculatorWrapper />
     </div>
   );
 }
