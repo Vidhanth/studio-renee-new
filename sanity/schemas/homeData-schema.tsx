@@ -26,6 +26,13 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: "keywords",
+      title: "SEO Keywords",
+      type: "text",
+      description: "Enter keywords separated by commas. These will be used for SEO metadata.",
+      initialValue: "interiors, architecture, home, commercial, design, interior design, commercial designer, commercial interior, home designer, home interior, modern interior design, interior architect, design architects, bangalore, india, interior designer bangalore, best interior designers bangalore, top interior designers, luxury interiors, office interiors, retail interiors, commercial spaces",
+    }),
+    defineField({
       name: "featuredProjects",
       title: "Featured Projects",
       type: "array",

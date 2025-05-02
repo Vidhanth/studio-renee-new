@@ -9,6 +9,7 @@ export async function fetchHomeData(): Promise<HomeData | null> {
         _id,
         header,
         subheader,
+        keywords,
         featuredProjects[]->{
           _id,
           name,

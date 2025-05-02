@@ -3,15 +3,13 @@ const defaultTitle =
 const defaultDescription =
   "Transform your space with Studio Renée's expert interior design services in Bangalore. Specializing in commercial, retail, office, and home interiors. Get professional architectural solutions for modern, aesthetic spaces.";
 const defaultKeywords =
-  "interiors, architecture, home, commercial, design, interior design, commercial designer, commercial interior, home designer, home interior, modern interior design, interior architect, design architects, bangalore, india, interior designer bangalore, best interior designers bangalore, top interior designers, luxury interiors, office interiors, retail interiors, commercial spaces".split(
-    ","
-  );
+  "interiors, architecture, home, commercial, design, interior design, commercial designer, commercial interior, home designer, home interior, modern interior design, interior architect, design architects, bangalore, india, interior designer bangalore, best interior designers bangalore, top interior designers, luxury interiors, office interiors, retail interiors, commercial spaces";
 
 export const defaultMetadata = {
   metadataBase: new URL("https://studiorenee.co.in"),
   title: defaultTitle,
   description: defaultDescription,
-  keywords: defaultKeywords,
+  keywords: defaultKeywords.split(",").map(keyword => keyword.trim()),
   openGraph: {
     title: defaultTitle,
     description: defaultDescription,

@@ -17,6 +17,7 @@ export interface HomeData {
   _id: string;
   header: string;
   subheader: string;
+  keywords?: string;
   featuredProjects: Project[];
   featuredTestimonials: Testimonial[];
   carouselImages: string[];
