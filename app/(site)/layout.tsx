@@ -8,7 +8,20 @@ import { defaultMetadata } from "@/constants";
 import { FaWhatsapp } from "react-icons/fa6";
 import Script from "next/script";
 
-export const metadata: Metadata = defaultMetadata;
+export const metadata: Metadata = {
+  ...defaultMetadata,
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+};
 
 export default function RootLayout({
   children,
