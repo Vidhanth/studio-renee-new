@@ -4,7 +4,7 @@ import { FadeInLeft } from "@/transitions/FadeInLeft";
 import { FadeInLeftWhenVisible } from "@/transitions/FadeInLeftWhenVisible";
 import { FadeInUp } from "@/transitions/FadeInUp";
 import { FadeInUpWhenVisible } from "@/transitions/FadeInUpWhenVisible";
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import useWindowSize from "@rooks/use-window-size";
 
 type FadeAnimationProps = {
@@ -23,6 +23,21 @@ export default function FadeAnimation({
   className,
 }: FadeAnimationProps) {
   const { innerWidth } = useWindowSize();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // During SSR and initial render, use FadeInUp to avoid hydration mismatch
+  if (!mounted) {
+    return (
+      <FadeInUp className={className} delay={delay}>
+        {children}
+      </FadeInUp>
+    );
+  }
+
   const isSmallScreen = (innerWidth || 0) < 768;
 
   if (animateOnVisibility) {
@@ -42,6 +57,7 @@ export default function FadeAnimation({
       </FadeInLeftWhenVisible>
     );
   }
+
   if (
     (isSmallScreen && overrideDirection != "left") ||
     overrideDirection == "up"
@@ -52,6 +68,7 @@ export default function FadeAnimation({
       </FadeInUp>
     );
   }
+
   return (
     <FadeInLeft className={className} delay={delay}>
       {children}
