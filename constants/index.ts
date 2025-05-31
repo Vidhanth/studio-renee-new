@@ -18,7 +18,7 @@ export const defaultMetadata = {
     siteName: "Studio Renée",
     images: [
       {
-        url: "/og-image.png",
+        url: "og_image.png",
         width: 1200,
         height: 630,
         alt: "Studio Renée - Interior Design Studio",
@@ -29,7 +29,7 @@ export const defaultMetadata = {
     card: "summary_large_image",
     title: defaultTitle,
     description: defaultDescription,
-    images: ["/og-image.png"],
+    images: ["og_image.png"],
   },
   robots: {
     index: true,
