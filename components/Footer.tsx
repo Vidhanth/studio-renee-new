@@ -22,9 +22,9 @@ export default function Footer() {
             <p className="font-bold">Address:</p>
             <p>
               Studio Renée <br />
-              No. 89/2, 2nd floor <br />
-              East Anjaneya Temple Road, Basavanagudi <br />
-              Bengaluru 560004
+              No. 17, 3rd cross <br />
+              N. S. Iyengar Street, Seshadripuram <br />
+              Bengaluru 560020
             </p>
           </div>
           <div className="flex gap-3">

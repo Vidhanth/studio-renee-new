@@ -50,9 +50,9 @@ export default function ContactPage() {
               <div className="font-bold text-lg pt-2">Office</div>
               <div>
                 Studio Reneé <br />
-                No. 89/2, 2nd floor <br />
-                East Anjaneya Temple Road, Basavanagudi <br />
-                Bengaluru 560004
+                No. 17, 3rd cross <br />
+                N. S. Iyengar Street, Seshadripuram <br />
+                Bengaluru 560020
               </div>
             </FadeInLeft>
           </div>
