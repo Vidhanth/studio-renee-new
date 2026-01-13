@@ -33,7 +33,7 @@ export const FadeInLeft = ({
         enter: { opacity: 1, translateX: 0 },
         exit: { opacity: 0, translateX: -distance },
       }}
-      transition={{ type: "linear", duration, delay }}
+      transition={{ duration, delay }}
       className={className}
     >
       {children}

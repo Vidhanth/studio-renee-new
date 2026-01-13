@@ -30,7 +30,7 @@ export const FadeIn = ({
         enter: { opacity: 1 },
         exit: { opacity: 0 },
       }}
-      transition={{ type: "linear", duration, delay }}
+      transition={{ duration, delay }}
       className={className}
     >
       {children}
