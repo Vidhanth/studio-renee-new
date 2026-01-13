@@ -69,9 +69,9 @@ export default async function Home() {
   return (
     <div className="overflow-hidden">
       <HeroSection
-        images={homePageData?.carouselImages!}
-        title={homePageData?.header!}
-        subtitle={homePageData?.subheader!}
+        images={homePageData?.carouselImages || []}
+        title={homePageData?.header || ""}
+        subtitle={homePageData?.subheader || ""}
       />
       <Divider />
       {homePageData?.sections.map((section) => (
@@ -80,7 +80,7 @@ export default async function Home() {
           <Divider />
         </div>
       ))}
-      <FAQSection faqItems={homePageData?.faq!} />
+      <FAQSection faqItems={homePageData?.faq || []} />
       <Divider />
       <Header
         title="Discover Our Work"

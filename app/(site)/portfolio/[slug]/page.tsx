@@ -9,9 +9,9 @@ import { fetchProject } from "@/sanity/sanity-utils";
 import { FadeIn } from "@/transitions";
 
 type Props = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 export const metadata = {
@@ -20,7 +20,8 @@ export const metadata = {
 };
 
 export default async function ProjectPage({ params }: Props) {
-  const project = await fetchProject(params.slug);
+  const { slug } = await params;
+  const project = await fetchProject(slug);
   return (
     <div className="mt-10">
       <Header title={project!.name} />
